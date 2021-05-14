@@ -18,7 +18,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/api/timestamp", (req, res)=>{
+app.get("/api", (req, res)=>{
   let unixDate = new Date(Date.now())
     const dateObj = {
       unix: unixDate.valueOf(),
@@ -28,7 +28,7 @@ app.get("/api/timestamp", (req, res)=>{
     return res.json(dateObj)
 })
 
-app.get("/api/timestamp/:date", (req, res)=>{
+app.get("/api/:date", (req, res)=>{
   if(/\d{5,}/.test(req.params.date)){
     let unixDateInt = parseInt(req.params.date)
     let dateObj = {
